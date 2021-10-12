@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Wep Scraping Reddit</title>
+    <link rel="stylesheet" href="/static/Reddit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css">
+</head>
+
+    <body>
+        <h1 style="text-align:center;"> Reddit Post</h1>
+        <div>
+            <i class="fa fa-reddit-square" style="font-size:180px; text-align:center; color:#ca1a37"></i>
+        </div>
+        <div id="form-container">
+            <div id="form-wrapper">
+                <form id="form" action="/PostReddit" method="POST">
+                    <div class="flex:6">
+                        <div class="form-row" style="text-align:center">
+                            <input id="title" class="form-control" type="text" name="titlePost" placeholder="Add Title"
+                                    style="font-size:10px; height:50px; width:30%; text-align:center; background-color:white; 
+                                    box-sizing: border-box; color: black;">
+                        </div>
+                        <br>
+                        <div class="form-row" style="text-align:center">
+                            <input id="title" class="form-control" type="text" name="NewReddit" placeholder="Add your new Post" 
+                                    style="font-size:10px; height:50px; text-align:center; width:30%; background-color:white; 
+                                    box-sizing: border-box; color:black;">
+                        </div>
+                    </div>
+                    <br>
+                        <div style="text-align:center">
+                            <button style="font-size:24px; border-radius:12px; text-align:center" type="submit" class="btn btn-primary">
+                                <i class="fa fa-reddit-square" style="color:#ca1130;">Post Reddit</i>
+                            </button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+
