@@ -2,10 +2,10 @@
 import praw  # Python Reddit API Wrapper
 import pandas as pd
 from pymongo import MongoClient
-import settings
+
 
 # Connecting with MongoDB Atlas
-client = MongoClient(settings.Mongo)
+client = MongoClient("Your_MongoDB_Connection_String")
 
 # Accessing Database with the name Data-Mining
 db = client['Data-Mining']
@@ -14,15 +14,14 @@ db = client['Data-Mining']
 collection = db['Reddit']
 
 # OAuth Authentication
-reddit = praw.Reddit(client_id = settings.Reddit_Client_Id, client_secret = settings.Reddit_Client_Secret,
-                     user_agent = settings.Reddit_User_Agent, username = settings.Reddit_Username,
-                     password = settings.Reddit_Password
-                    )
+reddit = praw.Reddit(client_id = "Your_Reddit_Client_Id", client_secret = "Your_Reddit_Client_Secret",
+                    user_agent = "Your_Reddit_User_Agent", username = "Your_Reddit_Username",
+                    password = "Your_Reddit_Password")
 
 # Using the class redditor to fetch data
 PostReddit = []
 
-for i in reddit.redditor(settings.Reddit_Username).submissions.top():
+for i in reddit.redditor("Your_Reddit_Username").submissions.top():
     PostReddit.append([i.title, i.id, i.url, i.num_comments, i.score, i.selftext])
 
 print(PostReddit) # Printing to show in demo

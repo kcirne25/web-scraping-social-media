@@ -3,10 +3,10 @@ from typing import Dict
 from pymongo import MongoClient
 import tweepy as tw
 import pandas as pd
-import settings  # Contains keys, passwords and other settings
+
 
 # Creating connection with MongoDB Atlas
-client = MongoClient(settings.Mongo)
+client = MongoClient("Your_MongoDB_Connection_String")
 
 # Creating a Database with the name Data-Mining
 mydb = client['Data-Mining']
@@ -15,8 +15,8 @@ mydb = client['Data-Mining']
 collection = mydb['Twitter']
 
 # OAuth Authentication
-auth = tw.OAuthHandler(settings.Twitter_Consumer_Key, settings.Twitter_Consumer_Secret)
-auth.set_access_token(settings.Twitter_Access_Token, settings.Twitter_Access_Secret)
+auth = tw.OAuthHandler("Your_Twitter_Consumer_Key", "Your_Twitter_Consumer_Secret")
+auth.set_access_token("Your_Twitter_Access_Token", "Your_Twitter_Access_Secret")
 
 # Creating twitter API
 api = tw.API(auth, wait_on_rate_limit=True)

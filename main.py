@@ -5,11 +5,11 @@ from praw.models.listing.mixins import subreddit
 from pymongo import MongoClient
 import tweepy as tw
 import praw  # Python Reddit API Wrapper
-import settings  # Contains keys, secrets and other settings
+
 
 # OAuth Authentication
-auth = tw.OAuthHandler(settings.Twitter_Consumer_Key, settings.Twitter_Consumer_Secret)
-auth.set_access_token(settings.Twitter_Access_Token, settings.Twitter_Access_Secret)
+auth = tw.OAuthHandler("Your_Twitter_Consumer_Key", "Your_Twitter_Consumer_Secret")
+auth.set_access_token("Your_Twitter_Access_Token", "Your_Twitter_Access_Secret")
 
 # Creating web app with Flask
 app = Flask(__name__)  # Flask constructor
@@ -24,7 +24,7 @@ def PostTweets():
     api = tw.API(auth, wait_on_rate_limit=True)
 
     # Creating connection with MongoDB Atlas
-    client = MongoClient(settings.Mongo)
+    client = MongoClient("Your_MongoDB_Connection_String")
     db = client['Data-Mining']
     collection = db['Twitter']
 
@@ -47,12 +47,12 @@ def PostTweets():
 # Reddit
 @app.route('/PostReddit', methods=['POST', 'GET'])
 def PostReddit():
-    reddit = praw.Reddit(client_id = settings.Reddit_Client_Id, client_secret = settings.Reddit_Client_Secret,
-                         user_agent = settings.Reddit_User_Agent, username = settings.Reddit_Username,
-                         password = settings.Reddit_Password)
+    reddit = praw.Reddit(client_id = "Your_Reddit_Client_Id", client_secret = "Your_Reddit_Client_Secret",
+                         user_agent = "Your_Reddit_User_Agent", username = "Your_Reddit_Username",
+                         password = "Your_Reddit_Password")
 
     # Creating connection with MongoDB Atlas
-    client = MongoClient(settings.Mongo)
+    client = MongoClient("Your_MongoDB_Connection_String")
     db = client['Data-Mining']
     collection = db['Reddit']
 
@@ -60,7 +60,7 @@ def PostReddit():
     if request.method == 'POST':
         TitleReddit = str(request.form['titlePost'])
         FormReddit = str(request.form['NewReddit'])
-        subReddit = reddit.subreddit("u_" + settings.Reddit_Username)
+        subReddit = reddit.subreddit("u_" + "Your_Reddit_Username")
         newReddit = subReddit.submit(TitleReddit, FormReddit)
 
         collection.insert_one({'title': newReddit.title,
