@@ -12,23 +12,27 @@ The code to fetch data was developed in Python, using the libraries Tweepy and P
 
 Tweets were fetched from my user and the following information of the data model below was stored in MongoDB:
 
-* Id: ID of the tweet
-* Tweet: text of the tweet
-* Time: when the tweet was posted
-* Likes: how many likes does a tweet has
-* Source: source of the data
-* Source_url: URL of the collected data
+| Name | Description |
+| ----------- | ----------- |
+| Id | ID of the tweet |
+| Tweet | Text of the tweet |
+| Time | When the tweet was posted |
+| Likes | How many likes does a tweet has |
+| Source | Source of the data |
+| Source_url | URL of the collected data |
 
 ### Reddit
 
 Posts were fetched from my user and the following information of the data model below was stored in MongoDB:
 
-* Title: title of the post
-* ID: id of the post
-* URL: url of the post
-* Num_comment: number of comments in the post
-* Score: number of upvotes
-* Self_text: text of the submitted post
+| Name | Description |
+| ----------- | ----------- |
+| Id | ID of the tweet |
+| Title | Title of the post |
+| URL | URL of the post |
+| Num_comment | Number of comments in the post |
+| Score | Snumber of upvotes |
+| Self_text | Text of the submitted post |
 
 ## User Interface
 
